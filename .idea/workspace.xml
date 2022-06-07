@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20ce7735-1b30-4bd9-821e-fe60ea98f7cb" name="变更" comment="Add Command Line System.">
+    <list default="true" id="20ce7735-1b30-4bd9-821e-fe60ea98f7cb" name="变更" comment="Fix some bugs.">
+      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/core/ICommandFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/team/arcticfox/server/frms/core/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/core/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team/arcticfox/server/frms/core/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/core/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team/arcticfox/server/frms/environment/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/environment/Variable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -110,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654585731541</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fix some bugs.">
+      <created>1654586644522</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1654586644522</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -132,6 +141,7 @@
     <MESSAGE value="Complete profile." />
     <MESSAGE value="Fix bugs for json parser." />
     <MESSAGE value="Add Command Line System." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Command Line System." />
+    <MESSAGE value="Fix some bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix some bugs." />
   </component>
 </project>

@@ -4,6 +4,8 @@ import team.arcticfox.server.frms.environment.Constant;
 import team.arcticfox.server.frms.environment.Variable;
 
 import java.io.FileInputStream;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     private static void initialize() {
@@ -15,17 +17,10 @@ public class Main {
         System.out.println(Constant.Message.getWelcomeWords());
         Command command = new Command();
         command.start();
+
         // test();
-
-        // run core code.
-
     }
 
-    private static void test() throws Exception {
-        FileInputStream fin = new FileInputStream(Constant.CONFIG_CONFIG_JSON);
-        String text = new String(fin.readAllBytes());
-        fin.close();
-
-        System.out.println(BasicConfig.parse(text));
+    private static void test() {
     }
 }
