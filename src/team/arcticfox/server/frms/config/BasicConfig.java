@@ -1,10 +1,9 @@
 package team.arcticfox.server.frms.config;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 
-public class Config {
+public class BasicConfig {
     private static final String DEFAULT_CONFIG_VERSION = "1.0.6.7";
 
     @JSONField(name = "config-version")
@@ -12,18 +11,21 @@ public class Config {
     @JSONField(name = "server", ordinal = 1)
     public final ServerConfig server;
 
-    public Config() {
-        this(new ServerConfig());
+
+    public BasicConfig(ServerConfig server) {
+        this(DEFAULT_CONFIG_VERSION, server);
     }
 
-    public Config(ServerConfig server) {
-        this.configVersion = DEFAULT_CONFIG_VERSION;
+    public BasicConfig(String configVersion, ServerConfig server) {
+        this.configVersion = configVersion;
         this.server = server;
     }
 
-    public static Config parse(String text) {
-        return JSON.parseObject(text, Config.class);
+
+    public static BasicConfig parse(String text) {
+        return JSON.parseObject(text, BasicConfig.class);
     }
+
 
     @Override
     public String toString() {
