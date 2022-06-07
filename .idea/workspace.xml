@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20ce7735-1b30-4bd9-821e-fe60ea98f7cb" name="变更" comment="Complete profile.">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/environment/Function.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/environment/Variable.java" afterDir="false" />
+    <list default="true" id="20ce7735-1b30-4bd9-821e-fe60ea98f7cb" name="变更" comment="Fix bugs for json parser.">
+      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/core/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team/arcticfox/server/frms/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/config/BasicConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team/arcticfox/server/frms/config/ServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/config/ServerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team/arcticfox/server/frms/environment/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/environment/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/team/arcticfox/server/frms/environment/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/environment/Function.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654580947229</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix bugs for json parser.">
+      <created>1654584287864</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654584287864</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +123,7 @@
     <MESSAGE value="Add Json Parser Environment." />
     <MESSAGE value="I don't know what has been updated." />
     <MESSAGE value="Complete profile." />
-    <option name="LAST_COMMIT_MESSAGE" value="Complete profile." />
+    <MESSAGE value="Fix bugs for json parser." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bugs for json parser." />
   </component>
 </project>
