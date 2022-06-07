@@ -3,6 +3,7 @@ package team.arcticfox.server.frms;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+@Deprecated
 public class JsonParser {
     private final String filePath;
     private String jsonText;
