@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20ce7735-1b30-4bd9-821e-fe60ea98f7cb" name="变更" comment="FuRui Medical System Server.">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/fastjson_1_2_53.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/fastjson-1.2.53.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/config/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/JsonParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/config/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/core/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/environment/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FuRuiMedicalSystemServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FuRuiMedicalSystemServer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="20ce7735-1b30-4bd9-821e-fe60ea98f7cb" name="变更" comment="Add Json Parser Environment." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +70,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654563975610</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Json Parser Environment.">
+      <created>1654566880885</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654566880885</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,6 +94,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="FuRui Medical System Server." />
-    <option name="LAST_COMMIT_MESSAGE" value="FuRui Medical System Server." />
+    <MESSAGE value="Add Json Parser Environment." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Json Parser Environment." />
   </component>
 </project>
