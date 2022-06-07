@@ -1,6 +1,7 @@
 package team.arcticfox.server.frms.core;
 
 import team.arcticfox.server.frms.environment.Function;
+import team.arcticfox.server.frms.environment.Variable;
 
 import java.util.Scanner;
 
@@ -16,6 +17,12 @@ public class Command extends Thread {
             if (cmd.equals("?") || cmd.equals("help")) {
                 System.out.println("------ Help List ------");
                 // helpList()
+                continue;
+            }
+            if (cmd.equals("info")) {
+                System.out.println(Variable.server_name + " - " + Variable.server_uuid);
+                System.out.println("\tip:\t\t" + Variable.server_ip);
+                System.out.println("\tport:\t" + Variable.server_port);
                 continue;
             }
             Function.printError("Wrong command!");
