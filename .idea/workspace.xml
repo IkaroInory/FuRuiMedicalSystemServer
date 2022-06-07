@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20ce7735-1b30-4bd9-821e-fe60ea98f7cb" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FuRuiMedicalSystemServer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    <list default="true" id="20ce7735-1b30-4bd9-821e-fe60ea98f7cb" name="变更" comment="FuRui Medical System Server.">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/fastjson_1_2_53.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/fastjson-1.2.53.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/config/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/JsonParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/config/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/core/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/server/frms/environment/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FuRuiMedicalSystemServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FuRuiMedicalSystemServer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +27,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -38,8 +42,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RunManager">
@@ -65,6 +74,14 @@
       <option name="presentableId" value="Default" />
       <updated>1654563889532</updated>
     </task>
+    <task id="LOCAL-00001" summary="FuRui Medical System Server.">
+      <created>1654563975610</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654563975610</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -77,5 +94,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="FuRui Medical System Server." />
+    <option name="LAST_COMMIT_MESSAGE" value="FuRui Medical System Server." />
   </component>
 </project>
