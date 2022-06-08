@@ -1,4 +1,4 @@
-package team.arcticfox.server.frms.environment;
+package team.arcticfox.frms.server.environment;
 
 public class Constant {
     private static final String CONFIG = "./resources/config/";

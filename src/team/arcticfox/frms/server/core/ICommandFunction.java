@@ -1,4 +1,4 @@
-package team.arcticfox.server.frms.core;
+package team.arcticfox.frms.server.core;
 
 public interface ICommandFunction {
     boolean fun(String[] args);

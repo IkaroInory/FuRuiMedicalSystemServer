@@ -1,14 +1,9 @@
-package team.arcticfox.server.frms.config;
+package team.arcticfox.frms.server.config;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
 
 public class ServerConfig {
-    private static final String DEFAULT_NAME = "FRMS-Server-01";
-    private static final String DEFAULT_UUID = "be69c309-5bb2-4eb4-be5b-6d4046677d19";
-    private static final String DEFAULT_IP = "localhost";
-    private static final int DEFAULT_PORT = 25565;
-
     @JSONField(name = "name")
     public String name;
     @JSONField(name = "uuid", ordinal = 1)
@@ -17,23 +12,23 @@ public class ServerConfig {
     public String ip;
     @JSONField(name = "port", ordinal = 3)
     public int port;
+    @JSONField(name = "list", ordinal = 4)
+    public ServerList list;
 
 
-    public ServerConfig(String ip, int port) {
-        this(DEFAULT_NAME, DEFAULT_UUID, ip, port);
-    }
-
-    public ServerConfig(String name, String uuid, String ip, int port) {
+    public ServerConfig(String name, String uuid, String ip, int port, ServerList list) {
         this.name = name;
         this.uuid = uuid;
         this.ip = ip;
         this.port = port;
+        this.list = list;
     }
 
 
     public static ServerConfig parse(String text) {
         return JSON.parseObject(text, ServerConfig.class);
     }
+
 
     @Override
     public String toString() {

@@ -1,7 +1,7 @@
-package team.arcticfox.server.frms.core;
+package team.arcticfox.frms.server.core;
 
-import team.arcticfox.server.frms.environment.Function;
-import team.arcticfox.server.frms.environment.Variable;
+import team.arcticfox.frms.server.environment.Function;
+import team.arcticfox.frms.server.environment.Variable;
 
 import java.util.HashMap;
 import java.util.Map;

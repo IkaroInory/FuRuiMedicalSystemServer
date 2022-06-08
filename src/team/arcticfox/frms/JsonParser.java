@@ -1,4 +1,4 @@
-package team.arcticfox.server.frms;
+package team.arcticfox.frms;
 
 import java.io.FileInputStream;
 import java.io.IOException;
