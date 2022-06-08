@@ -1,11 +1,6 @@
-import team.arcticfox.server.frms.config.BasicConfig;
 import team.arcticfox.server.frms.core.Command;
 import team.arcticfox.server.frms.environment.Constant;
 import team.arcticfox.server.frms.environment.Variable;
-
-import java.io.FileInputStream;
-import java.util.Arrays;
-import java.util.List;
 
 public class Main {
     private static void initialize() {
@@ -22,5 +17,6 @@ public class Main {
     }
 
     private static void test() {
+
     }
 }
