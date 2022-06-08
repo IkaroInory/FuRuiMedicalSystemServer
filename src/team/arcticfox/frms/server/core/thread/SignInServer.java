@@ -3,9 +3,11 @@ package team.arcticfox.frms.server.core.thread;
 import com.alibaba.fastjson.JSON;
 import team.arcticfox.frms.server.database.Database;
 import team.arcticfox.frms.server.dataset.AccountInfo;
+import team.arcticfox.frms.server.dataset.DateTime;
 import team.arcticfox.frms.server.dataset.SignInInfo;
 import team.arcticfox.frms.server.environment.Function;
 import team.arcticfox.frms.server.environment.Variable;
+import team.arcticfox.frms.server.log.Log;
 import team.arcticfox.frms.server.security.MD5;
 
 import java.io.DataInputStream;
@@ -17,13 +19,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SignInServer extends Thread {
-    private ServerSocket signInServer;
+    private ServerSocket server;
     private Socket socket;
 
     public SignInServer() {
         super();
         try {
-            signInServer = new ServerSocket(Variable.server_signIn_port);
+            server = new ServerSocket(Variable.server_signIn_port);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,7 +33,7 @@ public class SignInServer extends Thread {
 
     private void end() {
         try {
-            signInServer.close();
+            server.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,25 +48,40 @@ public class SignInServer extends Thread {
      * @author Guanyu Hu
      * @date 2022/6/8 15:47
      */
-    private void accountInfoMonitor() {
+    private void monitor() {
         String message;
         while (true) {
             try {
-                socket = signInServer.accept();
+                socket = server.accept();
                 DataInputStream in = new DataInputStream(socket.getInputStream());
                 DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
                 message = in.readUTF();
 
-                System.out.println(message);
                 SignInInfo info = JSON.parseObject(message, SignInInfo.class);
-                out.writeUTF(signIn(info.username, info.password));
-                out.writeUTF(getAccountInfo(info.username).toJsonString());
+                DateTime dateTime = DateTime.now();
+                String sessionUUID = Function.getTimeStamp(dateTime);
+                String statueCode = "NULL";
+                Function.printSession("Login session: " + info.username + " (" + dateTime + ")");
+                Function.printSession("Session UUID: " + sessionUUID);
+
+                statueCode = signIn(info.username, info.password);
+
+                out.writeUTF(statueCode);
+
+                AccountInfo accountInfo = getAccountInfo(info.username);
+                if (accountInfo == null)
+                    out.writeUTF("");
+                else
+                    out.writeUTF(getAccountInfo(info.username).toJsonString());
                 out.flush();
 
                 out.close();
                 in.close();
                 socket.close();
+
+                Log.createSignInServerLog(info.username, sessionUUID, dateTime, statueCode);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -103,7 +120,7 @@ public class SignInServer extends Thread {
 
     @Override
     public void run() {
-        accountInfoMonitor();
+        monitor();
         end();
     }
 }

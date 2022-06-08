@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="FuRuiMedicalSystemServer:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="20ce7735-1b30-4bd9-821e-fe60ea98f7cb" name="变更" comment="Has some bugs.">
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-java-8.0.19.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/config/DatabaseConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/database/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/dataset/AccountInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/dataset/DateTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/dataset/DateTimeSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/dataset/IJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/dataset/SignInInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/security/Base64.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/security/MD5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/fastjson_1_2_53.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/fastjson_1_2_53.xml" afterDir="false" />
+    <list default="true" id="20ce7735-1b30-4bd9-821e-fe60ea98f7cb" name="变更" comment="Fix sign in server.">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/FuRuiMedicalSystemServer_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/sign in/202206082348397078.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/core/thread/RegisterServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/log/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FuRuiMedicalSystemServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FuRuiMedicalSystemServer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team/arcticfox/frms/server/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team/arcticfox/frms/server/core/signIn/SignInServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/core/thread/SignInServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/team/arcticfox/frms/server/core/thread/SignInServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/core/thread/SignInServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/team/arcticfox/frms/server/environment/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/environment/Constant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/team/arcticfox/frms/server/environment/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/environment/Function.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team/arcticfox/frms/server/environment/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team/arcticfox/frms/server/environment/Variable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,8 +61,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "E:/Project Solution/FuRuiMedicalSystemServer/lib/mysql-connector-java-8.0.19.jar",
-    "project.structure.last.edited": "库",
+    "last_opened_file_path": "E:/Project Solution/FuRuiMedicalSystemServer/logs",
+    "project.structure.last.edited": "工件",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -77,6 +75,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Project Solution\FuRuiMedicalSystemServer\config" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="team.arcticfox.frms.server" />
       <recent name="team.arcticfox" />
@@ -161,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654680737657</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fix sign in server.">
+      <created>1654698108397</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1654698108397</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,7 +193,8 @@
     <MESSAGE value="Add Command Line System." />
     <MESSAGE value="Fix some bugs." />
     <MESSAGE value="Has some bugs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Has some bugs." />
+    <MESSAGE value="Fix sign in server." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix sign in server." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

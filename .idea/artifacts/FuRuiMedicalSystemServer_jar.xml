@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact name="FuRuiMedicalSystemServer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FuRuiMedicalSystemServer_jar</output-path>
+    <root id="root">
+      <element id="archive" name="FuRuiMedicalSystemServer.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="FuRuiMedicalSystemServer" />
+      </element>
+      <element id="library" level="project" name="fastjson-1.2.53" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/mysql-connector-java-8.0.19.jar" />
+      <element id="dir-copy" path="$PROJECT_DIR$/config" />
+      <element id="dir-copy" path="$PROJECT_DIR$/logs" />
+    </root>
+  </artifact>
+</component>
