@@ -15,5 +15,12 @@
                 "port": 25567
             }
         }
+    },
+    "database": {
+        "name": "Furui Medical System",
+        "ip": "121.37.221.220",
+        "port": 3306,
+        "root-username": "root",
+        "root-password": "ArcticFox@2022"
     }
 }

@@ -10,15 +10,13 @@ public class Config {
     public final String configVersion;
     @JSONField(name = "server", ordinal = 1)
     public ServerConfig server;
+    @JSONField(name = "database", ordinal = 2)
+    public DatabaseConfig database;
 
-
-    public Config(ServerConfig server) {
-        this(DEFAULT_CONFIG_VERSION, server);
-    }
-
-    public Config(String configVersion, ServerConfig server) {
+    public Config(String configVersion, ServerConfig server, DatabaseConfig database) {
         this.configVersion = configVersion;
         this.server = server;
+        this.database = database;
     }
 
 

@@ -3,7 +3,7 @@ package team.arcticfox.frms.server.environment;
 import team.arcticfox.frms.server.config.Config;
 
 public class Variable {
-    private static Config config;
+    public static Config config;
 
     public static String server_name;
     public static String server_uuid;
@@ -14,6 +14,8 @@ public class Variable {
     public static int server_signIn_port;
     public static String server_register_ip;
     public static int server_register_port;
+
+
 
     private static void loadConfig() {
         config = Config.parse(Function.readFile(Constant.CONFIG_CONFIG_JSON));
