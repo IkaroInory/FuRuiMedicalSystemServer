@@ -2,6 +2,7 @@ package team.arcticfox.frms.server.environment;
 
 import team.arcticfox.frms.server.dataset.DateTime;
 import team.arcticfox.frms.server.security.Base64;
+import team.arcticfox.frms.server.security.MD5;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,7 +18,7 @@ public class Function {
     }
 
     public static void printSession(String info) {
-        System.out.println("[Session]\t" + info);
+        System.out.println("[Session]\t[" + DateTime.now() + "]\t" + info);
     }
 
     public static String readFile(String path) {
@@ -42,8 +43,19 @@ public class Function {
         return "UPDATE " + PATH_TABLE_ACCOUNT + " SET `Last Login Time` = NOW() WHERE `Id` = " + id;
     }
 
-    public static String getTimeStamp() {
-        return getTimeStamp(DateTime.now());
+    public static String getSQL_InsertUser(String username, String email, String password) {
+        final String PATH_TABLE_ACCOUNT = "`" + Variable.config.database.name + "`.`" + Constant.TABLE_ACCOUNT_INFO + "`";
+        return "INSERT INTO " + PATH_TABLE_ACCOUNT + " (" +
+                "`" + Constant.COLUMN_USERNAME + "`, " +
+                "`" + Constant.COLUMN_EMAIL + "`, " +
+                "`" + Constant.COLUMN_PASSWORD + "`, " +
+                "`" + Constant.COLUMN_PERMISSION + "`" +
+                ") VALUES (" +
+                "'" + Base64.encode(username) + "', " +
+                "'" + Base64.encode(email) + "', " +
+                "'" + Base64.encode(MD5.encode(password)) + "', " +
+                "'" + "User" + "'" +
+                ")";
     }
 
     public static String getTimeStamp(DateTime dateTime) {

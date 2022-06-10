@@ -1,0 +1,16 @@
+{
+    "uuid": "202206101636519202",
+    "time": "2022-06-10 16:36:51",
+    "ip": {
+        "address": "127.0.0.1",
+        "port": 54660
+    },
+    "exception": {
+        "code": "NULL"
+    },
+    "json": {
+        "username": "test2",
+        "email": "test2@frms.org",
+        "password": "Test@2022"
+    }
+}

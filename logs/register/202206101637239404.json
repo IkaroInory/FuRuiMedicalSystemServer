@@ -1,0 +1,14 @@
+{
+	"uuid":"202206101637239404",
+	"time":"2022-06-10 16:37:23",
+	"ip":{"address":"127.0.0.1","port":54667},
+	"exception":{
+		"code":"AC2001",
+		"message":"Username has been existed."
+	},
+	"json":{
+		"username":"root",
+		"email":"root",
+		"password":"Root@2022"
+	}
+}

@@ -2,24 +2,37 @@ package team.arcticfox.frms.server.log;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import team.arcticfox.frms.exception.FuRuiException;
+import team.arcticfox.frms.exception.NullException;
 import team.arcticfox.frms.server.dataset.DateTime;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.SocketAddress;
 import java.nio.charset.StandardCharsets;
 
 public class Log {
     private static final String dir = "logs/";
 
-    public static void createSignInServerLog(String username, String sessionUUID, DateTime time, String statueCode) {
-        String fileName = dir + "sign in/" + sessionUUID + ".json";
+    public static void createSignInServerLog(String uuid, DateTime time, SocketAddress ip, String exceptionCode, JSONObject json) {
+        String fileName = dir + "sign in/" + uuid + ".json";
 
-        JSONObject log = new JSONObject(true);
-        log.put("username", username);
-        log.put("session-uuid", sessionUUID);
-        log.put("time", time.toString());
-        log.put("statueCode", statueCode);
+        JSONObject log = new JSONObject(true) {
+            {
+                put("uuid", uuid);
+                put("time", time.toString());
+                put("ip", JSON.parseObject(JSON.toJSONString(ip, true)));
+                put("exception", new JSONObject(true) {
+                    {
+                        put("code", exceptionCode);
+                        if (exceptionCode != new NullException().code)
+                            put("message", FuRuiException.parse(exceptionCode).getMessage());
+                    }
+                });
+                put("json", json);
+            }
+        };
 
         try {
             File file = new File(fileName);
@@ -34,14 +47,24 @@ public class Log {
         }
     }
 
-    public static void createRegisterLog(String username, String sessionUUID, DateTime time, String statueCode) {
-        String fileName = dir + "register/" + sessionUUID + ".json";
+    public static void createRegisterLog(String uuid, DateTime time, SocketAddress ip, String exceptionCode, JSONObject json) {
+        String fileName = dir + "register/" + uuid + ".json";
 
-        JSONObject log = new JSONObject(true);
-        log.put("username", username);
-        log.put("session-uuid", sessionUUID);
-        log.put("time", time.toString());
-        log.put("statueCode", statueCode);
+        JSONObject log = new JSONObject(true) {
+            {
+                put("uuid", uuid);
+                put("time", time.toString());
+                put("ip", JSON.parseObject(JSON.toJSONString(ip, true)));
+                put("exception", new JSONObject(true) {
+                    {
+                        put("code", exceptionCode);
+                        if (exceptionCode != new NullException().code)
+                            put("message", FuRuiException.parse(exceptionCode).getMessage());
+                    }
+                });
+                put("json", json);
+            }
+        };
 
         try {
             File file = new File(fileName);

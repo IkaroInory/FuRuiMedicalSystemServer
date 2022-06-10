@@ -1,10 +1,16 @@
 package team.arcticfox.frms.server.core.thread;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.parser.Feature;
+import team.arcticfox.frms.exception.FuRuiException;
+import team.arcticfox.frms.exception.NullException;
+import team.arcticfox.frms.exception.account.PasswordIsWrongException;
+import team.arcticfox.frms.exception.account.UserNotFoundException;
 import team.arcticfox.frms.server.database.Database;
 import team.arcticfox.frms.server.dataset.AccountInfo;
 import team.arcticfox.frms.server.dataset.DateTime;
-import team.arcticfox.frms.server.dataset.SignInInfo;
+import team.arcticfox.frms.server.dataset.IJson;
 import team.arcticfox.frms.server.environment.Function;
 import team.arcticfox.frms.server.environment.Variable;
 import team.arcticfox.frms.server.log.Log;
@@ -15,12 +21,32 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+
+class SignInInfo implements IJson {
+    @JSONField(name = "username")
+    public String username;
+    @JSONField(name = "password", ordinal = 1)
+    public String password;
+
+    SignInInfo() {
+        this("", "");
+    }
+
+    SignInInfo(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    @Override
+    public String toJsonString() {
+        return JSON.toJSONString(this);
+    }
+}
+
 
 public class SignInServer extends Thread {
     private ServerSocket server;
-    private Socket socket;
 
     public SignInServer() {
         super();
@@ -39,48 +65,44 @@ public class SignInServer extends Thread {
         }
     }
 
-
-    /**
-     * Listen for account information that be sent from client.
-     *
-     * @param
-     * @return void
-     * @author Guanyu Hu
-     * @date 2022/6/8 15:47
-     */
     private void monitor() {
-        String message;
         while (true) {
             try {
-                socket = server.accept();
+                Socket socket = server.accept();
                 DataInputStream in = new DataInputStream(socket.getInputStream());
                 DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-                message = in.readUTF();
+                String msg = in.readUTF();
+                SignInInfo info = JSON.parseObject(msg, SignInInfo.class);
 
-                SignInInfo info = JSON.parseObject(message, SignInInfo.class);
                 DateTime dateTime = DateTime.now();
-                String sessionUUID = Function.getTimeStamp(dateTime);
-                String statueCode = "NULL";
-                Function.printSession("Login session: " + info.username + " (" + dateTime + ")");
-                Function.printSession("Session UUID: " + sessionUUID);
+                String uuid = Function.getTimeStamp(dateTime);
 
-                statueCode = signIn(info.username, info.password);
+                Function.printSession("Login session: " + socket.getRemoteSocketAddress());
+                Function.printSession("Session UUID: " + uuid);
 
-                out.writeUTF(statueCode);
+                String exceptionCode = signIn(info.username, info.password);
 
-                AccountInfo accountInfo = getAccountInfo(info.username);
+                out.writeUTF(exceptionCode);
+                out.flush();
+
+                AccountInfo accountInfo = AccountInfo.getAccountInfo(info.username);
                 if (accountInfo == null)
                     out.writeUTF("");
                 else
-                    out.writeUTF(getAccountInfo(info.username).toJsonString());
+                    out.writeUTF(AccountInfo.getAccountInfo(info.username).toJsonString());
                 out.flush();
+
+                if (exceptionCode.equals(new NullException().code))
+                    Function.printSession("Login successful.");
+                else
+                    Function.printSession("Login failed. " + FuRuiException.parse(exceptionCode).getMessage());
 
                 out.close();
                 in.close();
                 socket.close();
 
-                Log.createSignInServerLog(info.username, sessionUUID, dateTime, statueCode);
+                Log.createSignInServerLog(uuid, dateTime, socket.getRemoteSocketAddress(), exceptionCode, JSON.parseObject(msg, Feature.OrderedField));
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -88,35 +110,18 @@ public class SignInServer extends Thread {
         }
     }
 
-    private AccountInfo getAccountInfo(String username) {
-        Database db = new Database(Variable.config.database.name);
-        db.open();
-        ResultSet rs = db.sqlQuery(Function.getSQL_ByName(username));
-        AccountInfo accountInfo = null;
-        try {
-            if (rs.first())
-                accountInfo = AccountInfo.parse(rs);
-            rs.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        db.close();
-        return accountInfo;
-    }
-
     private String signIn(String username, String password) {
-        AccountInfo accountInfo = getAccountInfo(username);
-        if (accountInfo == null) return "AC1001";
-        if (!MD5.encode(password).equals(accountInfo.password)) return "AC1002";
+        AccountInfo accountInfo = AccountInfo.getAccountInfo(username);
+        if (accountInfo == null) return new UserNotFoundException().code;
+        if (!MD5.encode(password).equals(accountInfo.password)) return new PasswordIsWrongException().code;
 
         Database db = new Database(Variable.config.database.name);
         db.open();
         db.sqlUpdate(Function.getSQL_UpdateLastLoginTime(accountInfo.id));
         db.close();
 
-        return "NULL";
+        return new NullException().code;
     }
-
 
     @Override
     public void run() {

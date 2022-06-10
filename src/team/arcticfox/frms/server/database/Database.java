@@ -13,11 +13,9 @@ public class Database {
     private static Connection conn;
     private static Statement stmt;
 
-    private final String databaseName;
     private final String url;
 
     public Database(String databaseName) {
-        this.databaseName = databaseName;
         this.url = "jdbc:mysql://" + Variable.config.database.ip + ":" + Variable.config.database.port + "/"
                 + URLEncoder.encode(databaseName, StandardCharsets.UTF_8) + "?"         // 数据库名含空格，用Url转义
                 + "allowPublicKeyRetrieval=true&"

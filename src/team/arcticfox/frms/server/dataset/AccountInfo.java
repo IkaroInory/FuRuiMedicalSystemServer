@@ -2,7 +2,10 @@ package team.arcticfox.frms.server.dataset;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
+import team.arcticfox.frms.server.database.Database;
 import team.arcticfox.frms.server.environment.Constant;
+import team.arcticfox.frms.server.environment.Function;
+import team.arcticfox.frms.server.environment.Variable;
 import team.arcticfox.frms.server.security.Base64;
 
 import java.sql.ResultSet;
@@ -43,7 +46,7 @@ public class AccountInfo implements IJson {
     }
 
 
-    public static AccountInfo parse(ResultSet rs) {
+    private static AccountInfo parse(ResultSet rs) {
         int id = 0;
         String username = "";
         String email = "";
@@ -66,6 +69,22 @@ public class AccountInfo implements IJson {
             // Do nothing.
         }
         return new AccountInfo(id, username, email, password, permission, registrationTime, destructionTime, lastLoginTime);
+    }
+
+    public static AccountInfo getAccountInfo(String username) {
+        Database db = new Database(Variable.config.database.name);
+        db.open();
+        ResultSet rs = db.sqlQuery(Function.getSQL_ByName(username));
+        AccountInfo accountInfo = null;
+        try {
+            if (rs.first())
+                accountInfo = AccountInfo.parse(rs);
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        db.close();
+        return accountInfo;
     }
 
     @Override
